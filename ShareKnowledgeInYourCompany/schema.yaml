@@ -1,0 +1,121 @@
+openapi: 3.0.0
+info:
+  title: Google Sheets API
+  description: Google Sheetsとのインタラクションを可能にするAPIで、シートデータの取得と更新ができます。
+  version: 1.0.1
+servers:
+  - url: https://script.google.com
+    description: Google Apps Script実行URL
+paths:
+  /macros/s/AKfycbwX00zQJ3go8kpppFuHNP0qDfOlSfPmznzjuakNXr7nZRL6EI7EgD2XuGnZwkGUodek/exec:
+    get:
+      operationId: getSheetData
+      summary: 指定されたパラメータに基づいてシートからデータを取得します。
+      parameters:
+        - name: type
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - listMaster
+              - querySheet
+              - getFilteredSheetsData
+          description: 実行する操作のタイプ。'listMaster'はマスターシートのデータを取得し、'querySheet'はシートデータのクエリを実行します。'getFilteredSheetsData'はフィルタリングされたデータを取得しますが、この操作には追加のパラメータは必要ありません。
+        - name: sheetName
+          in: query
+          required: false
+          schema:
+            type: string
+          description: クエリを実行するシートの名前。'querySheet'操作に必要です。
+        - name: query
+          in: query
+          required: false
+          schema:
+            type: string
+          description: シートデータをフィルタリングするためのクエリ。'querySheet'操作に必要です。
+      responses:
+        "200":
+          description: JSON形式でデータを正常に取得しました。フィルタリングされたデータもこの形式で提供されます。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          Number:
+                            type: integer
+                          From:
+                            type: string
+                          Question:
+                            type: string
+                          Answer:
+                            type: string
+                          Point:
+                            type: integer
+                          Created_at:
+                            type: string
+                          Manual_flag:
+                            type: integer
+    post:
+      operationId: handlePostRequest
+      summary: POSTリクエストを処理して、指定されたアクションに応じて異なる操作を実行します。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  enum:
+                    - createSheet
+                    - addQuestionPoint
+                    - addRowInQA
+                sheetName:
+                  type: string
+                from:
+                  type: string
+                question:
+                  type: string
+                answer:
+                  type: string
+                number:
+                  type: integer
+              required:
+                - action
+      responses:
+        "200":
+          description: 操作が成功しました。具体的なレスポンスメッセージは操作の種類により異なります。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response_data:
+                    type: string
+        "400":
+          description: リクエストが不正です。必須パラメータが欠落しているか、不正です。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        "500":
+          description: 内部サーバーエラー、エラーメッセージを返します。
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string

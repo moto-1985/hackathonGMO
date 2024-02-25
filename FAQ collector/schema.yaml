@@ -1,0 +1,128 @@
+openapi: 3.0.0
+info:
+  title: Spreadsheet FAQ API
+  description: Google SpreadsheetにFAQ項目を追加し、取得するAPI。
+  version: 1.0.0
+servers:
+  - url: https://script.google.com
+    description: Google Apps Script Web AppのURL
+paths:
+  /macros/s/AKfycbzXhETOvuGY5fWc04qs7SpDbp5bugJE5w2F8KE4qWwyO18D7RkojBb95yGMJPm_6wYLQA/exec:
+    post:
+      operationId: modifyFAQ
+      summary: スプレッドシートにFAQ項目を追加または削除します。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  description: 操作タイプ。'createFAQ'または'deleteFAQ'である必要があります。
+                  enum: [createFAQ, deleteFAQ]
+                number:
+                  type: integer
+                  description: 特定のカテゴリのシート内で行を特定するためのnumber。'createFAQ'アクションで必要です。
+                from:
+                  type: string
+                  description: FAQの情報源または作成者。'createFAQ'アクションで必要です。
+                question:
+                  type: string
+                  description: FAQの質問。'createFAQ'アクションで必要です。
+                answer:
+                  type: string
+                  description: FAQの答え。'createFAQ'アクションで必要です。
+                created_at:
+                  type: string
+                  format: date-time
+                  description: FAQ項目の作成日時。'createFAQ'アクションで必要です。
+                category:
+                  type: string
+                  description: FAQのカテゴリー。'createFAQ'および'deleteFAQ'アクションで必要です。
+                referenceNumber:
+                  type: string
+                  description: FAQ項目を特定するための参照番号。'deleteFAQ'アクションで必要です。
+              required:
+                - action
+                - category
+      responses:
+        '200':
+          description: FAQが正常に追加されました
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: FAQ added successfully
+        '400':
+          description: サポートされていない操作または不正なリクエスト
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Unsupported action
+        '500':
+          description: サーバー内部エラー
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: エラーメッセージの詳細
+    get:
+      operationId: getFAQs
+      summary: スプレッドシートからFAQ項目のリストを取得します。
+      responses:
+        '200':
+          description: FAQデータのリスト
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    ReferenceNumber:
+                      type: string
+                    From:
+                      type: string
+                    Question:
+                      type: string
+                    Answer:
+                      type: string
+                    Created_at:
+                      type: string
+                      format: date-time
+                    Category:
+                      type: string
+                    ReferenceURL:
+                      type: string
+        '400':
+          description: 不正なリクエスト
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Invalid request
+        '500':
+          description: サーバー内部エラー
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Internal server error
