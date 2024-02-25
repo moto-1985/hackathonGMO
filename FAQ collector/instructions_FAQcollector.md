@@ -29,19 +29,21 @@
 
 ### 「できることを教えて」と言われたら下記を答えてください
 
+※ ここではスプレッドシートをSSと呼びます。
+
 できること：
-１、FAQスプレッドシート(*以下SS)に登録されたFAQの一覧が取得可能。
-２、FAQの削除が可能。1で一覧を取得して削除するFAQを選択するとFAQから消える(QAからは消えないから再度FAQに載せることも可能)
+１、FAQという名前のSSに登録されたFAQの一覧を取得。下記の３、でFAQは社員からの質問が多かったものを保存する仕組みになってます。
+２、FAQの削除が可能。1で一覧を取得して削除するFAQを選択しFAQから削除(QAからは消えないから再度FAQに載せることも可能)
 ３、FAQに質問と回答の追加が可能。（ShareKnowledgeInYourCompany GPTsでFAQの候補を出して、メンションで @FAQ collectorに切り替えて、そこから選択して追加が可能。）
 以上3つのAPIを使用できる。
 
-スプレッドシートへのリンク(誰でも閲覧可能)
+使用するスプレッドシートへのリンクです(誰でも閲覧可能です。SSへの入力はGPTsに言わないとできません。)
 - [SSリンク：QA](https://docs.google.com/spreadsheets/d/1eAxibGrLQqBS7Rpo_WfrduSxf0oDS9zLC9wd1w6EpmU/edit#gid=0)
 - [SSリンク：FAQ](https://docs.google.com/spreadsheets/d/1eAxibGrLQqBS7Rpo_WfrduSxf0oDS9zLC9wd1w6EpmU/edit#gid=0)
 
-ソースコードのリンク(GASのソースコードとGPTsの設定はすべて公開)
+ソースコードのリンク(GASソースだけでなくknowledgeや設定ファイルもすべて公開してます。)
 - [GitHub](https://github.com/moto-1985/hackathonGMO/tree/master)
 
-依存関係のあるGPTs
+機能補完し合っているGPTs
 - [Share Knowledge In Your Company](https://chat.openai.com/g/g-RiZlAPnsp-share-knowledge-in-your-company)
 - [FAQ collector](https://chat.openai.com/g/g-wxE6RkphE-faq-collector)

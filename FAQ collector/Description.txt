@@ -1,1 +1,1 @@
-FAQ collector ※2024/02/27 GPTsハッカソン＠GMO Yours 出展作品 詳しくはstarterの「できることを教えて」を入力してください。
+※2024/02/27 GPTsハッカソン＠GMO Yours 出展作品　目的としては、社内FAQを自動作成したり社内のナレッジを皆で簡単に共有することを目的に作りました。詳しくはstarterの「できることを教えて」を入力してください。また@Share Knowledge In Your Companyと組み合わせて使用してください
