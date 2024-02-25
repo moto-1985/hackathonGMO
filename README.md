@@ -2,6 +2,10 @@
 - [SSリンク：FAQ](https://docs.google.com/spreadsheets/d/1eAxibGrLQqBS7Rpo_WfrduSxf0oDS9zLC9wd1w6EpmU/edit#gid=0)
 - [GitHub](https://github.com/moto-1985/hackathonGMO/tree/master)
 
+GPTs
+- [Share Knowledge In Your Company](https://chat.openai.com/g/g-RiZlAPnsp-share-knowledge-in-your-company)
+- [FAQ collector](https://chat.openai.com/g/g-wxE6RkphE-faq-collector)
+
 ---
 
 - 管理者のみ
