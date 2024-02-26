@@ -63,7 +63,7 @@
 
 使用するスプレッドシートへのリンクです(誰でも閲覧可能です。SSへの入力はGPTsに言わないとできません。)
 - [SSリンク：QA](https://docs.google.com/spreadsheets/d/1eAxibGrLQqBS7Rpo_WfrduSxf0oDS9zLC9wd1w6EpmU/edit#gid=0)
-- [SSリンク：FAQ](https://docs.google.com/spreadsheets/d/1eAxibGrLQqBS7Rpo_WfrduSxf0oDS9zLC9wd1w6EpmU/edit#gid=0)
+- [SSリンク：FAQ](https://docs.google.com/spreadsheets/d/1VRQzSdFQkOjhmHwf41zGB1YDjK4rJj6SR_IwCgLnpDU/edit#gid=60889795)
 
 ソースコードのリンク(GASソースだけでなくknowledgeや設定ファイルもすべて公開してます。)
 - [GitHub](https://github.com/moto-1985/hackathonGMO/tree/master)
