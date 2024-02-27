@@ -71,3 +71,7 @@
 機能補完し合っているGPTs
 - [Share Knowledge In Your Company](https://chat.openai.com/g/g-RiZlAPnsp-share-knowledge-in-your-company)
 - [FAQ collector](https://chat.openai.com/g/g-wxE6RkphE-faq-collector)
+
+Conversation Startar
+- はじめます
+- FAQをまとめたいので参考データをください
